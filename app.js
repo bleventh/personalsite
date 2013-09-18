@@ -48,9 +48,9 @@ app.get('/about', function(req, res) {
    });
 });
 
-app.get('/skills', function(req, res) {
-   res.render('skills', {
-      title: "Skills"
+app.get('/resume', function(req, res) {
+   res.render('resume', {
+      title: "Resume"
    });
 });
 
