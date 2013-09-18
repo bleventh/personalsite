@@ -7,14 +7,25 @@
       <title><%=title%></title>
    </head>
    <body>
-      <div class="pure-menu pure-menu-open pure-menu-horizontal">
-         <ul>
-            <li class="pure-menu-selected"><a
-               href="/">Home</a></li>
-            <li><a href="/about">About Me</a></li>
-            <li><a href="/skills">Skills</a></li>
-         </ul>
+      <div class="pure-g-r" id="layout">
+         <a href="/" id="menuLink" class="pure-menu-link"></a>
+         <div class="pure-u" id="menu">
+            <div class="pure-menu pure-menu-open">
+               <a class="pure-menu-heading" href="/">Brandon</a>
+               <ul>
+                  <li><a href="/about">About</a></li>
+                  <li><a href="/skills">Skills</a></li>
+               </ul>
+            </div>
+         </div>
+         <div class="pure-u-1" id="main">
+            <div class="header">
+               <h1><%=title%></h1>
+            </div>
+            <div class="content">
+               <%-body%>
+            </div>
+         </div>
       </div>
-      <%-body%>
    </body>
 </html>
