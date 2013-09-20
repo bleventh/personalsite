@@ -7,6 +7,9 @@
       "express" : "3.x",
       "mysql" : "x.x",
       "ejs" : "x.x",
-      "express-partials" : "x.x"
+      "express-partials" : "x.x",
+      "bcrypt-nodejs" : "x.x",
+      "passport" : "x.x",
+      "passport-local" : "x.x"
    }
 }
