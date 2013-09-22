@@ -32,11 +32,6 @@ var connection = mysql.createConnection({
        });
     });
  });
-connection.query('USE resume_page', function (err) {
-connection.query("SELECT * FROM admin_user where username='bleventh'", function(err, rows, fields) {
-   console.log(rows[0].password);
-});
-});
 
 /**
  * Database helper function
@@ -44,6 +39,7 @@ connection.query("SELECT * FROM admin_user where username='bleventh'", function(
 function findByUsername(username, fn) {
    connection.query("USE resume_page", function (err) {
       if (err) { return fn(null,null); }
+      // To-do: sanitize inputs
       connection.query("SELECT * FROM admin_user WHERE username='" + username + "'", function (err, rows, fields) {
          if (err) { console.log("hi"); return fn(null,null); }
          if (rows[0]) {
@@ -124,12 +120,11 @@ app.get('/admin', ensureAuthenticated, function(req, res) {
 });
 
 app.get('/login', function(req, res) {
-   res.render('login', { user: req.user, messages: req.session.messages, title: 'Login' });
+   res.render('login', { user: req.user, message: req.flash('error'), title: 'Login' });
 });
 
 app.post('/login', passport.authenticate('local', { failureRedirect: '/login', failureFlash: true }),
       function(req, res) {
-         console.log('hello');
          res.redirect('/admin');
       }
 );
@@ -142,20 +137,6 @@ app.get('/logout', function(req, res) {
 app.get('*', function(req, res) {
    res.send('404');
 });
-
-// app.post('/login', function(req, res, next) {
-//       passport.authenticate('local', function(err, user, info) {
-//          if (err) { return next(err) }
-//          if (!user) {
-//             req.session.messages = [info.message];
-//             return res.redirect('/login');
-//          }
-//          req.logIn(user, function(err) {
-//             if (err) { return next(err); }
-//             return res.redirect('/');
-//          });
-//       })(req, res, next);
-// });
 
 /**
  * Server
