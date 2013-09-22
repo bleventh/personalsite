@@ -10,6 +10,7 @@
       "express-partials" : "x.x",
       "bcrypt-nodejs" : "x.x",
       "passport" : "x.x",
-      "passport-local" : "x.x"
+      "passport-local" : "x.x",
+      "connect-flash" : "x.x"
    }
 }

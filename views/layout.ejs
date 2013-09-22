@@ -13,7 +13,7 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="layout.css" rel="stylesheet"> 
+    <link href="layout.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
@@ -31,13 +31,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Brandon</a>
+          <a class="navbar-brand <% if (title == "Home") { %> active" <%} else {%> "<%}%> href="/">Brandon</a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li <% if (title == "Home") { %> class="active" <%}%>><a href="/">Home</a></li>
-            <li <% if (title == "About Me") { %> class="active" <%}%>><a href="/about">About</a></li>
             <li <% if (title == "Resume") { %> class="active" <%}%>><a href="/resume">Resume</a></li>
+            <li <% if (title == "Projects") { %> class="active" <%}%>><a href="/projects">Projects</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
